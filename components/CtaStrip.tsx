@@ -5,9 +5,10 @@ import styles from "./CtaStrip.module.css";
 
 type Props = {
   headline: string;
+  flush?: boolean;
 };
 
-export function CtaStrip({ headline }: Props) {
+export function CtaStrip({ headline, flush }: Props) {
   const [value, setValue] = useState("");
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -15,7 +16,7 @@ export function CtaStrip({ headline }: Props) {
   };
 
   return (
-    <section className={styles.strip}>
+    <section className={`${styles.strip} ${flush ? styles.flush : ""}`}>
       <div className="wrap-narrow">
         <span className={`kicker ${styles.kicker}`}>Start now</span>
         <h2 className={styles.heading}>{headline}</h2>

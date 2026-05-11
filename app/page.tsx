@@ -118,7 +118,10 @@ export default function Page() {
       />
       <ProfileGallery />
       <Faq />
-      <CtaStrip headline="Resumes don't tell stories. Start your Saywise profile." />
+      <CtaStrip
+        headline="Resumes don't tell stories. Start your Saywise profile."
+        flush
+      />
       <Footer />
     </>
   );

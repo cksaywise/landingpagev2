@@ -2,6 +2,11 @@
   background: var(--color-sys-ink);
   color: var(--color-sys-bg);
   padding: 56px 0;
+  margin: 96px 0;
+}
+
+.flush {
+  margin-bottom: 0;
 }
 
 .kicker {

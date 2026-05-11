@@ -35,9 +35,6 @@ export function FeatureSection({ heading, tabs }: Props) {
               className={`${styles.tab} ${i === active ? styles.tabActive : ""}`}
               onClick={() => setActive(i)}
             >
-              <span className={styles.tabIdx}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
               {tab.label}
             </button>
           ))}

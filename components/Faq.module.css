@@ -4,14 +4,14 @@
 }
 
 .heading {
-  font: 500 44px/1.02 var(--font-heading);
+  font: 500 56px/1.02 var(--font-heading);
   letter-spacing: -0.038em;
   text-align: center;
   margin-bottom: 56px;
 }
 
 .list {
-  max-width: 760px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -28,7 +28,7 @@
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 24px;
-  padding: 24px 8px;
+  padding: 28px 8px;
   cursor: pointer;
   user-select: none;
   background: transparent;
@@ -80,11 +80,11 @@
 
 .answerInner {
   padding: 0 8px 28px;
-  font: 400 16px/1.55 var(--font-sans);
+  font: 400 16px/1.6 var(--font-sans);
   letter-spacing: -0.005em;
   color: var(--color-sys-ink-2);
   text-wrap: pretty;
-  max-width: 600px;
+  max-width: 680px;
 }
 
 .answerInner p {

@@ -5,11 +5,11 @@
 
 .head {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 56px;
 }
 
 .heading {
-  font: 500 44px/1.02 var(--font-heading);
+  font: 500 56px/1.02 var(--font-heading);
   letter-spacing: -0.038em;
   color: var(--color-sys-ink);
   max-width: 720px;
@@ -28,8 +28,8 @@
 
 .tab {
   position: relative;
-  padding: 14px 18px;
-  font: 500 13px/1.35 var(--font-sans);
+  padding: 18px 20px;
+  font: 500 14px/1.35 var(--font-sans);
   letter-spacing: -0.005em;
   color: var(--color-sys-ink-3);
   background: transparent;
@@ -39,10 +39,6 @@
   margin-bottom: -1px;
   text-align: center;
   transition: color 150ms ease, border-color 150ms ease;
-  display: inline-flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 8px;
 }
 
 .tab + .tab::before {
@@ -62,12 +58,6 @@
 .tabActive {
   color: var(--color-sys-ink) !important;
   border-bottom-color: var(--color-sys-ink) !important;
-}
-
-.tabIdx {
-  font: 400 10px/1 var(--font-mono);
-  letter-spacing: 0.12em;
-  color: var(--color-sys-ink-3);
 }
 
 .body {
@@ -90,6 +80,7 @@
   letter-spacing: -0.008em;
   color: var(--color-sys-ink-2);
   text-wrap: pretty;
+  margin-bottom: 20px;
 }
 
 .media {

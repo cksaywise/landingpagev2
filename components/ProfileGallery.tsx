@@ -4,7 +4,8 @@ const PROFILES = [
   {
     name: "Maya Chen",
     role: "Designer & writer · Brooklyn",
-    avatar: "linear-gradient(135deg, rgba(0,0,0,0.14), rgba(0,0,0,0.08))",
+    avatar:
+      "linear-gradient(135deg, var(--color-sys-rule-strong), var(--color-sys-rule))",
   },
   {
     name: "Dimas Ardiansyah",

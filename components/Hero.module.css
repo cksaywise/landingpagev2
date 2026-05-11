@@ -1,5 +1,5 @@
 .hero {
-  padding: 184px 0 120px;
+  padding: 200px 0 120px;
   margin-top: -64px;
   text-align: center;
   position: relative;
@@ -69,10 +69,10 @@
 }
 
 .steps {
-  margin-top: 96px;
+  margin-top: 140px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
   text-align: left;
 }
 
