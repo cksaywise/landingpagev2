@@ -1,0 +1,254 @@
+/* ============================================================
+   SAYWISE — Colors & Type
+   Source of truth: globals.css from saywise-design-system codebase.
+   This file flattens the production tokens into plain CSS vars
+   for design-tool / static-HTML use. Same names; no Tailwind required.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:opsz,wght@9..40,100..1000&family=Fraunces:opsz,wght@9..144,100..900&family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&family=Inter:opsz,wght@14..32,100..900&family=JetBrains+Mono:wght@100..800&family=Manrope:wght@200..800&family=Nunito:wght@200..1000&family=Outfit:wght@100..900&family=Playfair+Display:wght@400..900&family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&family=Work+Sans:wght@100..900&display=swap');
+
+@font-face {
+  font-family: 'Geist';
+  src: url('./fonts/Geist-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── BASE TYPE TOKENS ───────────────────────────────────────── */
+:root {
+  /* Font families — production stack matches src/lib/fonts.ts */
+  --font-geist-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono-pill: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  --font-editorial-heading: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-modern: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-portfolio: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-warm-serif: 'Fraunces', ui-serif, Georgia, serif;
+  --font-bricolage: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-manrope: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-outfit: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-nunito: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --font-work-sans: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-dm-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-space-mono: 'Space Mono', ui-monospace, Menlo, Consolas, monospace;
+  --font-ibm-plex: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* Active aliases (Default pairing — Geist) */
+  --font-sans: var(--font-geist-sans);
+  --font-heading: var(--font-geist-sans);
+  --font-mono: var(--font-mono-pill);
+
+  /* Type scale (px values from design-tokens.json `core.fontSize`) */
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-base: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 20px;
+  --fs-2xl: 24px;
+  --fs-3xl: 30px;
+  --fs-4xl: 36px;
+  --fs-5xl: 48px;
+  --fs-6xl: 60px;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Spacing scale (px from `core.spacing`) */
+  --sp-0_5: 2px;  --sp-1: 4px;  --sp-1_5: 6px; --sp-2: 8px;  --sp-2_5: 10px;
+  --sp-3: 12px;   --sp-3_5: 14px; --sp-4: 16px; --sp-5: 20px; --sp-6: 24px;
+  --sp-8: 32px;   --sp-10: 40px;  --sp-12: 48px; --sp-16: 64px;
+  --sp-20: 80px;  --sp-24: 96px;
+
+  /* Radius (rounded corners default) */
+  --radius-sys-button: 9999px;
+  --radius-sys-pill: 9999px;
+  --radius-sys-media: 6px;
+
+  /* Default theme = minimal/light */
+  --color-sys-bg: #ffffff;
+  --color-sys-bg-2: #fafafa;
+  --color-sys-tile: #fafafa;
+  --color-sys-ink: #0a0a0a;
+  --color-sys-ink-2: #585858;
+  --color-sys-ink-3: #a0a0a0;
+  --color-sys-rule: rgba(0,0,0,0.08);
+  --color-sys-rule-strong: rgba(0,0,0,0.14);
+  --color-sys-accent: #0a0a0a;
+  --color-sys-accent-soft: rgba(0,0,0,0.05);
+  --color-sys-status-viewer: #585858;
+  --color-sys-status-owner: #0a0a0a;
+}
+
+/* ── FONT PAIRINGS ────────────────────────────────────────────
+   Activate by setting <html data-font="…">. Mono is global (the
+   pill typeface stays consistent across pairings). */
+:root[data-font="default"]   { --font-heading: var(--font-geist-sans);     --font-sans: var(--font-geist-sans); }
+:root[data-font="editorial"] { --font-heading: var(--font-editorial-heading); --font-sans: var(--font-modern); }
+:root[data-font="modern"]    { --font-heading: var(--font-portfolio);     --font-sans: var(--font-outfit); }
+:root[data-font="warm"]      { --font-heading: var(--font-warm-serif);    --font-sans: var(--font-nunito); }
+:root[data-font="bold"]      { --font-heading: var(--font-bricolage);     --font-sans: var(--font-manrope); }
+:root[data-font="studio"]    { --font-heading: var(--font-work-sans);     --font-sans: var(--font-dm-sans); }
+:root[data-font="mono"]      { --font-heading: var(--font-space-mono);    --font-sans: var(--font-ibm-plex); }
+
+/* ── THEMES (light) ──────────────────────────────────────────── */
+[data-theme="minimal"] {
+  --color-sys-bg:#ffffff; --color-sys-bg-2:#fafafa; --color-sys-tile:#fafafa;
+  --color-sys-ink:#0a0a0a; --color-sys-ink-2:#585858; --color-sys-ink-3:#a0a0a0;
+  --color-sys-rule:rgba(0,0,0,0.08); --color-sys-rule-strong:rgba(0,0,0,0.14);
+  --color-sys-accent:#0a0a0a; --color-sys-accent-soft:rgba(0,0,0,0.05);
+  --color-sys-status-viewer:#585858; --color-sys-status-owner:#0a0a0a;
+}
+[data-theme="clay"] {
+  --color-sys-bg:#f0e7db; --color-sys-bg-2:#e9dfd0; --color-sys-tile:#faf4e9;
+  --color-sys-ink:#261f1a; --color-sys-ink-2:#746a5f; --color-sys-ink-3:#a89e92;
+  --color-sys-rule:rgba(38,31,26,0.09); --color-sys-rule-strong:rgba(38,31,26,0.16);
+  --color-sys-accent:#b8452b; --color-sys-accent-soft:rgba(184,69,43,0.09);
+  --color-sys-status-viewer:#3d8a5f; --color-sys-status-owner:#b88a1b;
+}
+[data-theme="indigo"] {
+  --color-sys-bg:#ecebf2; --color-sys-bg-2:#e3e2ed; --color-sys-tile:#f5f4fa;
+  --color-sys-ink:#1c1a2e; --color-sys-ink-2:#615d7a; --color-sys-ink-3:#9894a8;
+  --color-sys-rule:rgba(28,26,46,0.09); --color-sys-rule-strong:rgba(28,26,46,0.16);
+  --color-sys-accent:#5b4df2; --color-sys-accent-soft:rgba(91,77,242,0.09);
+  --color-sys-status-viewer:#4f79d9; --color-sys-status-owner:#8a6ef2;
+}
+[data-theme="forest"] {
+  --color-sys-bg:#eaefe5; --color-sys-bg-2:#dfe7d8; --color-sys-tile:#f2f5ed;
+  --color-sys-ink:#1a2a1e; --color-sys-ink-2:#5a6b5d; --color-sys-ink-3:#93a493;
+  --color-sys-rule:rgba(26,42,30,0.09); --color-sys-rule-strong:rgba(26,42,30,0.16);
+  --color-sys-accent:#2f5e3d; --color-sys-accent-soft:rgba(47,94,61,0.09);
+  --color-sys-status-viewer:#5a8f6a; --color-sys-status-owner:#c49238;
+}
+[data-theme="rose"] {
+  --color-sys-bg:#f7edeb; --color-sys-bg-2:#efe0dd; --color-sys-tile:#fbf2f0;
+  --color-sys-ink:#2e1e1f; --color-sys-ink-2:#705a5c; --color-sys-ink-3:#a99092;
+  --color-sys-rule:rgba(46,30,31,0.09); --color-sys-rule-strong:rgba(46,30,31,0.16);
+  --color-sys-accent:#c94264; --color-sys-accent-soft:rgba(201,66,100,0.09);
+  --color-sys-status-viewer:#7a9a6c; --color-sys-status-owner:#c94264;
+}
+[data-theme="slate"] {
+  --color-sys-bg:#edf0f3; --color-sys-bg-2:#e0e5ea; --color-sys-tile:#f4f6f9;
+  --color-sys-ink:#161d26; --color-sys-ink-2:#5e6872; --color-sys-ink-3:#94a0ac;
+  --color-sys-rule:rgba(22,29,38,0.09); --color-sys-rule-strong:rgba(22,29,38,0.16);
+  --color-sys-accent:#2e5aa8; --color-sys-accent-soft:rgba(46,90,168,0.09);
+  --color-sys-status-viewer:#5c8aa6; --color-sys-status-owner:#d97a2e;
+}
+[data-theme="lemon"] {
+  --color-sys-bg:#f6f2d9; --color-sys-bg-2:#ede8c8; --color-sys-tile:#fbf8e6;
+  --color-sys-ink:#2a2410; --color-sys-ink-2:#756d4a; --color-sys-ink-3:#afa578;
+  --color-sys-rule:rgba(42,36,16,0.09); --color-sys-rule-strong:rgba(42,36,16,0.16);
+  --color-sys-accent:#b58517; --color-sys-accent-soft:rgba(181,133,23,0.09);
+  --color-sys-status-viewer:#7a9046; --color-sys-status-owner:#b58517;
+}
+[data-theme="ocean"] {
+  --color-sys-bg:#e6f1f5; --color-sys-bg-2:#d3e6ec; --color-sys-tile:#eff6f8;
+  --color-sys-ink:#0f2935; --color-sys-ink-2:#476875; --color-sys-ink-3:#8eabb5;
+  --color-sys-rule:rgba(15,41,53,0.09); --color-sys-rule-strong:rgba(15,41,53,0.16);
+  --color-sys-accent:#0891b2; --color-sys-accent-soft:rgba(8,145,178,0.09);
+  --color-sys-status-viewer:#5b9bd5; --color-sys-status-owner:#0891b2;
+}
+
+/* ── DARK ──────────────────────────────────────────────────────
+   Activate with `.dark` class on any ancestor (typically <html>). */
+.dark[data-theme="minimal"], .dark [data-theme="minimal"] {
+  --color-sys-bg:#0a0a0a; --color-sys-bg-2:#141414; --color-sys-tile:#1a1a1a;
+  --color-sys-ink:#fafafa; --color-sys-ink-2:#a0a0a0; --color-sys-ink-3:#5a5a5a;
+  --color-sys-rule:rgba(255,255,255,0.10); --color-sys-rule-strong:rgba(255,255,255,0.18);
+  --color-sys-accent:#fafafa; --color-sys-accent-soft:rgba(255,255,255,0.08);
+}
+.dark[data-theme="clay"], .dark [data-theme="clay"] {
+  --color-sys-bg:#1a1410; --color-sys-bg-2:#241d18; --color-sys-tile:#2a1f18;
+  --color-sys-ink:#f5ebdd; --color-sys-ink-2:#b0a493; --color-sys-ink-3:#756a5d;
+  --color-sys-rule:rgba(245,235,221,0.10); --color-sys-rule-strong:rgba(245,235,221,0.18);
+  --color-sys-accent:#e06b4a; --color-sys-accent-soft:rgba(224,107,74,0.12);
+}
+.dark[data-theme="indigo"], .dark [data-theme="indigo"] {
+  --color-sys-bg:#13111f; --color-sys-bg-2:#1c1930; --color-sys-tile:#24213a;
+  --color-sys-ink:#ecebf2; --color-sys-ink-2:#a09ab5; --color-sys-ink-3:#6a6585;
+  --color-sys-rule:rgba(236,235,242,0.10); --color-sys-rule-strong:rgba(236,235,242,0.18);
+  --color-sys-accent:#8a7dff; --color-sys-accent-soft:rgba(138,125,255,0.12);
+}
+.dark[data-theme="forest"], .dark [data-theme="forest"] {
+  --color-sys-bg:#0f1a12; --color-sys-bg-2:#17241c; --color-sys-tile:#1f2e24;
+  --color-sys-ink:#e8efe3; --color-sys-ink-2:#98aa9b; --color-sys-ink-3:#5e7062;
+  --color-sys-rule:rgba(232,239,227,0.10); --color-sys-rule-strong:rgba(232,239,227,0.18);
+  --color-sys-accent:#5fb87a; --color-sys-accent-soft:rgba(95,184,122,0.12);
+}
+.dark[data-theme="rose"], .dark [data-theme="rose"] {
+  --color-sys-bg:#1a1113; --color-sys-bg-2:#241a1c; --color-sys-tile:#2a1c1f;
+  --color-sys-ink:#f7ebeb; --color-sys-ink-2:#b39798; --color-sys-ink-3:#785d5f;
+  --color-sys-rule:rgba(247,235,235,0.10); --color-sys-rule-strong:rgba(247,235,235,0.18);
+  --color-sys-accent:#ef6f89; --color-sys-accent-soft:rgba(239,111,137,0.12);
+}
+.dark[data-theme="slate"], .dark [data-theme="slate"] {
+  --color-sys-bg:#0e1319; --color-sys-bg-2:#161d26; --color-sys-tile:#1c2431;
+  --color-sys-ink:#e8ecf1; --color-sys-ink-2:#98a3ae; --color-sys-ink-3:#5d6974;
+  --color-sys-rule:rgba(232,236,241,0.10); --color-sys-rule-strong:rgba(232,236,241,0.18);
+  --color-sys-accent:#6b9eef; --color-sys-accent-soft:rgba(107,158,239,0.12);
+}
+.dark[data-theme="lemon"], .dark [data-theme="lemon"] {
+  --color-sys-bg:#1a1708; --color-sys-bg-2:#242010; --color-sys-tile:#2a2514;
+  --color-sys-ink:#f5efd0; --color-sys-ink-2:#b0a878; --color-sys-ink-3:#786f4a;
+  --color-sys-rule:rgba(245,239,208,0.10); --color-sys-rule-strong:rgba(245,239,208,0.18);
+  --color-sys-accent:#e0b840; --color-sys-accent-soft:rgba(224,184,64,0.12);
+}
+.dark[data-theme="ocean"], .dark [data-theme="ocean"] {
+  --color-sys-bg:#0a1a22; --color-sys-bg-2:#12252f; --color-sys-tile:#1a2e38;
+  --color-sys-ink:#e6eff3; --color-sys-ink-2:#8aa5b0; --color-sys-ink-3:#546975;
+  --color-sys-rule:rgba(230,239,243,0.10); --color-sys-rule-strong:rgba(230,239,243,0.18);
+  --color-sys-accent:#22d3ee; --color-sys-accent-soft:rgba(34,211,238,0.12);
+}
+
+/* ── CORNERS ──────────────────────────────────────────────────── */
+[data-corners="rounded"] { --radius-sys-button:9999px; --radius-sys-pill:9999px; --radius-sys-media:6px; }
+[data-corners="sharp"]   { --radius-sys-button:0;      --radius-sys-pill:0;      --radius-sys-media:0; }
+
+/* ── SEMANTIC ROLES (use these in components) ────────────────── */
+:root {
+  /* Heading roles */
+  --display-1:  var(--fw-medium) var(--fs-6xl)/1.02 var(--font-heading); /* hero name */
+  --display-2:  var(--fw-medium) var(--fs-3xl)/1.2  var(--font-heading); /* hero tagline */
+  --h1:         var(--fw-medium) var(--fs-4xl)/1.05 var(--font-heading);
+  --h2:         var(--fw-medium) var(--fs-2xl)/1.2  var(--font-heading);
+  --h3:         var(--fw-medium) var(--fs-xl)/1.15  var(--font-heading);
+  --row-title:  var(--fw-medium) var(--fs-xl)/1.15  var(--font-heading); /* timeline rows */
+
+  /* Body roles */
+  --body:       var(--fw-regular) var(--fs-base)/1.55 var(--font-sans);
+  --body-sm:    var(--fw-regular) var(--fs-sm)/1.55   var(--font-sans);
+  --label:      var(--fw-medium)  var(--fs-sm)/1.2    var(--font-sans);
+
+  /* Mono roles — pill / kicker / timestamps */
+  --kicker:     var(--fw-regular) var(--fs-xs)/1 var(--font-mono);     /* uppercase letterspaced */
+  --pill:       var(--fw-regular) var(--fs-xs)/1 var(--font-mono);
+  --code:       var(--fw-regular) var(--fs-sm)/1.55 var(--font-mono);
+
+  /* Tracking */
+  --tr-display: -0.035em;  /* hero name */
+  --tr-h2:      -0.022em;
+  --tr-body:    -0.01em;
+  --tr-kicker:  0.16em;    /* uppercase mono labels */
+  --tr-pill:    0.02em;
+}
+
+/* ── HELPER CLASSES ─────────────────────────────────────────── */
+.s-display-1 { font: var(--display-1); letter-spacing: var(--tr-display); color: var(--color-sys-ink); }
+.s-display-2 { font: var(--display-2); letter-spacing: -0.028em; color: var(--color-sys-ink); }
+.s-h1        { font: var(--h1); letter-spacing: -0.025em; color: var(--color-sys-ink); }
+.s-h2        { font: var(--h2); letter-spacing: var(--tr-h2); color: var(--color-sys-ink); }
+.s-h3        { font: var(--h3); color: var(--color-sys-ink); }
+.s-row-title { font: var(--row-title); letter-spacing: var(--tr-h2); color: var(--color-sys-ink); }
+.s-body      { font: var(--body); letter-spacing: var(--tr-body); color: var(--color-sys-ink-2); }
+.s-body-fg   { font: var(--body); letter-spacing: var(--tr-body); color: var(--color-sys-ink); }
+.s-body-sm   { font: var(--body-sm); letter-spacing: var(--tr-body); color: var(--color-sys-ink-2); }
+.s-label     { font: var(--label); color: var(--color-sys-ink); }
+.s-meta      { font: var(--body-sm); color: var(--color-sys-ink-3); }
+.s-kicker    { font: var(--kicker); letter-spacing: var(--tr-kicker); text-transform: uppercase; color: var(--color-sys-ink-2); }
+.s-pill      { font: var(--pill);   letter-spacing: var(--tr-pill); color: var(--color-sys-ink-2); }
+.s-code      { font: var(--code); color: var(--color-sys-ink); }
+
+/* base reset */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }

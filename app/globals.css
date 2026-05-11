@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap');
+
+:root {
+  --font-geist-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono-pill: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  --font-sans: var(--font-geist-sans);
+  --font-heading: var(--font-geist-sans);
+  --font-mono: var(--font-mono-pill);
+
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-base: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 20px;
+  --fs-2xl: 24px;
+  --fs-3xl: 30px;
+  --fs-4xl: 36px;
+  --fs-5xl: 48px;
+  --fs-6xl: 60px;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --sp-0_5: 2px; --sp-1: 4px; --sp-1_5: 6px; --sp-2: 8px; --sp-2_5: 10px;
+  --sp-3: 12px; --sp-3_5: 14px; --sp-4: 16px; --sp-5: 20px; --sp-6: 24px;
+  --sp-8: 32px; --sp-10: 40px; --sp-12: 48px; --sp-16: 64px;
+  --sp-20: 80px; --sp-24: 96px;
+
+  --radius-sys-button: 9999px;
+  --radius-sys-pill: 9999px;
+  --radius-sys-media: 6px;
+
+  --color-sys-bg: #ffffff;
+  --color-sys-bg-2: #fafafa;
+  --color-sys-tile: #fafafa;
+  --color-sys-ink: #0a0a0a;
+  --color-sys-ink-2: #585858;
+  --color-sys-ink-3: #a0a0a0;
+  --color-sys-rule: rgba(0, 0, 0, 0.08);
+  --color-sys-rule-strong: rgba(0, 0, 0, 0.14);
+  --color-sys-accent: #0a0a0a;
+  --color-sys-accent-soft: rgba(0, 0, 0, 0.05);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-sys-bg);
+  color: var(--color-sys-ink);
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.wrap-narrow {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 400 11px/1 var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-sys-ink-3);
+  margin-bottom: 18px;
+}
+
+.kicker::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-sys-ink);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 18px;
+  font: 500 13px/1 var(--font-sans);
+  letter-spacing: -0.005em;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 100ms ease, background-color 150ms ease, color 150ms ease,
+    border-color 150ms ease;
+}
+
+.btn:active {
+  transform: scale(0.985);
+}
+
+.btn-ghost {
+  color: var(--color-sys-ink);
+  border-color: var(--color-sys-rule);
+  background: var(--color-sys-bg);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-sys-rule-strong);
+}
+
+.btn-solid {
+  background: var(--color-sys-ink);
+  color: var(--color-sys-bg);
+}
+
+.btn-solid:hover {
+  background: #000;
+}
+
+.btn-lg {
+  padding: 14px 22px;
+  font-size: 14px;
+}

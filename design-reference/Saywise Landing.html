@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="minimal" data-font="default" data-corners="rounded">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1280" />
+<title>Saywise — Resume is dead. Your work isn't.</title>
+<link rel="stylesheet" href="colors_and_type.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  /* ── Page shell ─────────────────────────────────────────── */
+  body {
+    background: var(--color-sys-bg);
+    color: var(--color-sys-ink);
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .wrap-narrow { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
+
+  /* Mono kicker over section titles — clutch-style */
+  .kicker {
+    display: inline-flex; align-items: center; gap: 8px;
+    font: 400 11px/1 var(--font-mono);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-sys-ink-3);
+    margin-bottom: 18px;
+  }
+  .kicker::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--color-sys-ink);
+  }
+
+  /* ── NAV ────────────────────────────────────────────────── */
+  .nav {
+    position: sticky; top: 0; z-index: 40;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: 1px solid transparent;
+    transition: background-color 200ms ease, border-color 200ms ease, backdrop-filter 200ms ease;
+  }
+  .nav.scrolled {
+    background: color-mix(in srgb, var(--color-sys-bg) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom-color: var(--color-sys-rule);
+  }
+  .nav-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    height: 64px;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--color-sys-ink); text-decoration: none;
+    font: 500 18px/1 var(--font-heading);
+    letter-spacing: -0.025em;
+  }
+  .brand-mark { height: 26px; display: inline-flex; }
+  .brand-mark img, .brand-mark svg { height: 100%; width: auto; display: block; }
+  .nav-links {
+    display: flex; gap: 4px; list-style: none;
+    background: var(--color-sys-bg-2);
+    border: 1px solid var(--color-sys-rule);
+    border-radius: 9999px;
+    padding: 4px;
+  }
+  .nav-links a {
+    display: inline-flex; align-items: center;
+    padding: 8px 14px;
+    font: 500 13px/1 var(--font-sans);
+    color: var(--color-sys-ink-2);
+    text-decoration: none;
+    border-radius: 9999px;
+    transition: color 150ms ease, background-color 150ms ease;
+  }
+  .nav-links a:hover { color: var(--color-sys-ink); background: var(--color-sys-accent-soft); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 10px 18px;
+    font: 500 13px/1 var(--font-sans);
+    letter-spacing: -0.005em;
+    border-radius: 9999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 100ms ease, background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+  .btn:active { transform: scale(0.985); }
+  .btn-ghost { color: var(--color-sys-ink); border-color: var(--color-sys-rule); background: var(--color-sys-bg); }
+  .btn-ghost:hover { border-color: var(--color-sys-rule-strong); }
+  .btn-solid { background: var(--color-sys-ink); color: var(--color-sys-bg); }
+  .btn-solid:hover { background: #000; }
+  .btn-lg { padding: 14px 22px; font-size: 14px; }
+
+  /* ── HERO ───────────────────────────────────────────────── */
+  .hero {
+    padding: 200px 0 120px;
+    margin-top: -64px;
+    text-align: center;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('assets/hero-sky-8bit.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    z-index: -2;
+  }
+  /* Fade-out at the bottom so it blends into the white page */
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 45%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 65%, #ffffff 100%);
+    pointer-events: none;
+  }
+  /* Soft tint over the image to keep headline contrast comfortable */
+  .hero-veil {
+    position: absolute; inset: 0;
+    background: radial-gradient(60% 50% at 50% 30%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .hero h1 {
+    font: 500 96px/0.98 var(--font-heading);
+    letter-spacing: -0.045em;
+    color: var(--color-sys-ink);
+    text-wrap: balance;
+    margin: 0 auto 28px;
+    max-width: 1000px;
+  }
+  .hero h1 .muted { color: var(--color-sys-ink-3); }
+  .hero p.lead {
+    font: 400 19px/1.55 var(--font-sans);
+    letter-spacing: -0.012em;
+    color: var(--color-sys-ink-2);
+    max-width: 580px;
+    margin: 0 auto;
+    text-wrap: pretty;
+  }
+
+  /* Steps row */
+  .steps {
+    margin-top: 140px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .step {
+    aspect-ratio: 1 / 1.15;
+    background: var(--color-sys-tile);
+    border: 1px solid var(--color-sys-rule);
+    border-radius: var(--radius-sys-media);
+    padding: 24px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 150ms ease, transform 150ms ease;
+  }
+  .step:hover { border-color: var(--color-sys-rule-strong); transform: translateY(-2px); }
+  .step-num {
+    font: 400 11px/1 var(--font-mono);
+    letter-spacing: 0.16em;
+    color: var(--color-sys-ink-3);
+    text-transform: uppercase;
+  }
+  .step-title {
+    font: 500 22px/1.2 var(--font-heading);
+    letter-spacing: -0.022em;
+    color: var(--color-sys-ink);
+  }
+  .step-desc {
+    font: 400 14px/1.5 var(--font-sans);
+    letter-spacing: -0.005em;
+    color: var(--color-sys-ink-2);
+    margin-top: 8px;
+    max-width: 260px;
+  }
+  .step-art {
+    align-self: stretch;
+    flex: 1;
+    margin: 18px 0 8px;
+    border-radius: 4px;
+    background:
+      repeating-linear-gradient(135deg, var(--color-sys-rule) 0 1px, transparent 1px 14px),
+      var(--color-sys-bg);
+    border: 1px dashed var(--color-sys-rule-strong);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--color-sys-ink-3);
+    font: 400 11px/1 var(--font-mono);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* ── CTA STRIP ───────────────────────────────────────────── */
+  .cta-strip {
+    margin: 96px 0;
+    background: var(--color-sys-ink);
+    color: var(--color-sys-bg);
+    padding: 56px 0;
+  }
+  .cta-strip .kicker { color: rgba(255,255,255,0.55); }
+  .cta-strip .kicker::before { background: var(--color-sys-bg); }
+  .cta-strip h2 {
+    font: 500 44px/1.05 var(--font-heading);
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    white-space: nowrap;
+  }
+  .cta-form {
+    display: flex; align-items: center; gap: 8px;
+    max-width: 560px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 9999px;
+    padding: 6px 6px 6px 22px;
+  }
+  .cta-form input {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--color-sys-bg);
+    font: 400 15px/1 var(--font-sans);
+    letter-spacing: -0.005em;
+    padding: 14px 0;
+  }
+  .cta-form input::placeholder { color: rgba(255,255,255,0.45); }
+  .cta-form .btn-solid {
+    background: var(--color-sys-bg);
+    color: var(--color-sys-ink);
+  }
+  .cta-form .btn-solid:hover { background: #f0f0f0; }
+  .cta-meta {
+    margin-top: 14px;
+    font: 400 12px/1.4 var(--font-mono);
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── LOGOS / COMPANIES ──────────────────────────────────── */
+  .logos { padding: 96px 0 128px; text-align: center; }
+  .logos h2 {
+    font: 500 22px/1.3 var(--font-heading);
+    letter-spacing: -0.018em;
+    color: var(--color-sys-ink-2);
+    margin: 0 auto 72px;
+    max-width: 720px;
+    text-wrap: balance;
+  }
+  .ticker {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
+  }
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    gap: 72px;
+    align-items: center;
+    animation: ticker-scroll 42s linear infinite;
+  }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .ticker .logo-cell {
+    display: inline-flex; align-items: center; gap: 10px;
+    flex-shrink: 0;
+    color: var(--color-sys-ink);
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: opacity 200ms ease, filter 200ms ease;
+  }
+  .ticker .logo-cell:hover { opacity: 1; filter: grayscale(0%); }
+  .ticker .logo-cell img { height: 22px; width: auto; display: block; }
+  .ticker .logo-cell .logo-name {
+    font: 600 18px/1 var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  /* ── FEATURE BLOCKS ─────────────────────────────────────── */
+  .feature {
+    padding: 88px 0;
+    border-top: 1px solid var(--color-sys-rule);
+  }
+  .feature-head {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .feature-head h2 {
+    font: 500 56px/1.02 var(--font-heading);
+    letter-spacing: -0.038em;
+    color: var(--color-sys-ink);
+    white-space: nowrap;
+    margin: 0 auto;
+  }
+
+  .tabs {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    border-bottom: 1px solid var(--color-sys-rule);
+    margin-bottom: 40px;
+  }
+  .tab {
+    position: relative;
+    padding: 18px 20px;
+    font: 500 14px/1.35 var(--font-sans);
+    letter-spacing: -0.005em;
+    color: var(--color-sys-ink-3);
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    margin-bottom: -1px;
+    text-align: center;
+    transition: color 150ms ease, border-color 150ms ease;
+  }
+  .tab + .tab::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 20%; bottom: 20%;
+    width: 1px;
+    background: var(--color-sys-rule);
+  }
+  .tab:hover { color: var(--color-sys-ink-2); }
+  .tab.active {
+    color: var(--color-sys-ink);
+    border-bottom-color: var(--color-sys-ink);
+  }
+  .tab .tab-idx { display: none; }
+
+  .feature-body {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .feature-copy h3 {
+    font: 500 30px/1.15 var(--font-heading);
+    letter-spacing: -0.028em;
+    color: var(--color-sys-ink);
+    margin-bottom: 14px;
+    text-wrap: balance;
+  }
+  .feature-copy p {
+    font: 400 16px/1.6 var(--font-sans);
+    letter-spacing: -0.008em;
+    color: var(--color-sys-ink-2);
+    text-wrap: pretty;
+    margin-bottom: 20px;
+  }
+  .feature-copy { position: relative; }
+  .feature-copy-panel { display: none; }
+  .feature-copy-panel.active { display: block; }
+
+  .feature-media {
+    background: var(--color-sys-tile);
+    border: 1px solid var(--color-sys-rule);
+    border-radius: var(--radius-sys-media);
+    aspect-ratio: 16 / 10;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-media::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(135deg, var(--color-sys-rule) 0 1px, transparent 1px 22px);
+    opacity: 0.6;
+  }
+  .feature-media-label {
+    position: relative;
+    font: 400 11px/1 var(--font-mono);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-sys-ink-3);
+    background: var(--color-sys-bg);
+    padding: 8px 14px;
+    border: 1px solid var(--color-sys-rule);
+    border-radius: 9999px;
+  }
+
+  /* ── STATS STRIP ────────────────────────────────────────── */
+  .stats {
+    background: var(--color-sys-ink);
+    color: var(--color-sys-bg);
+    padding: 88px 0;
+    margin: 0;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .stat {
+    border-left: 1px solid rgba(255,255,255,0.14);
+    padding: 8px 28px;
+  }
+  .stat-num {
+    font: 400 64px/1 var(--font-heading);
+    letter-spacing: -0.035em;
+    color: var(--color-sys-bg);
+    margin-bottom: 16px;
+  }
+  .stat-label {
+    font: 400 15px/1.5 var(--font-sans);
+    letter-spacing: -0.005em;
+    color: rgba(255,255,255,0.65);
+    max-width: 280px;
+    text-wrap: pretty;
+  }
+
+  /* ── PROFILE GALLERY ────────────────────────────────────── */
+  .gallery { padding: 96px 0; }
+  .gallery h2 {
+    font: 500 56px/1.02 var(--font-heading);
+    letter-spacing: -0.038em;
+    text-align: center;
+    margin: 0 auto 56px;
+    max-width: 720px;
+    text-wrap: balance;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .profile-card {
+    aspect-ratio: 3 / 4;
+    background: var(--color-sys-tile);
+    border: 1px solid var(--color-sys-rule);
+    border-radius: var(--radius-sys-media);
+    padding: 28px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: border-color 150ms ease, transform 150ms ease;
+  }
+  .profile-card:hover { border-color: var(--color-sys-rule-strong); transform: translateY(-2px); }
+  .profile-avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-sys-rule-strong), var(--color-sys-rule));
+    border: 1px solid var(--color-sys-rule);
+    margin-bottom: 20px;
+  }
+  .profile-name {
+    font: 500 22px/1.15 var(--font-heading);
+    letter-spacing: -0.022em;
+    color: var(--color-sys-ink);
+  }
+  .profile-role {
+    font: 400 14px/1.4 var(--font-sans);
+    color: var(--color-sys-ink-2);
+    margin-top: 4px;
+  }
+  .profile-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: auto; padding-top: 24px;
+  }
+  .profile-tag {
+    font: 400 11px/1 var(--font-mono);
+    letter-spacing: 0.04em;
+    color: var(--color-sys-ink-2);
+    padding: 6px 10px;
+    border: 1px solid var(--color-sys-rule);
+    border-radius: 9999px;
+  }
+
+  /* ── FAQ ────────────────────────────────────────────────── */
+  .faq { padding: 96px 0; border-top: 1px solid var(--color-sys-rule); }
+  .faq h2 {
+    font: 500 56px/1.02 var(--font-heading);
+    letter-spacing: -0.038em;
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item {
+    border-top: 1px solid var(--color-sys-rule);
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--color-sys-rule); }
+  .faq-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 8px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .faq-q {
+    font: 500 20px/1.35 var(--font-heading);
+    letter-spacing: -0.018em;
+    color: var(--color-sys-ink);
+  }
+  .faq-icon {
+    width: 32px; height: 32px;
+    border: 1px solid var(--color-sys-rule);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--color-sys-ink-2);
+    flex-shrink: 0;
+    transition: transform 200ms ease, border-color 150ms ease, color 150ms ease;
+  }
+  .faq-row:hover .faq-icon { border-color: var(--color-sys-rule-strong); color: var(--color-sys-ink); }
+  .faq-icon i { width: 14px; height: 14px; stroke-width: 1.75; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 280ms ease;
+  }
+  .faq-a-inner {
+    padding: 0 8px 28px;
+    font: 400 16px/1.6 var(--font-sans);
+    letter-spacing: -0.005em;
+    color: var(--color-sys-ink-2);
+    text-wrap: pretty;
+    max-width: 680px;
+  }
+  .faq-a-inner p { margin: 0 0 12px; }
+  .faq-a-inner p:last-child { margin-bottom: 0; }
+  .faq-item.open .faq-a { max-height: 600px; }
+
+  /* ── FOOTER ─────────────────────────────────────────────── */
+  .footer {
+    background: #000;
+    color: #fff;
+    padding: 80px 0;
+    margin-top: 0;
+  }
+  .footer-inner { max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+  .footer-wordmark {
+    display: block;
+    margin: 0;
+    line-height: 0;
+  }
+  .footer-wordmark img {
+    width: 100%;
+    max-width: 1280px;
+    height: auto;
+    display: block;
+  }
+  .footer-meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 32px;
+    padding: 28px 0 0;
+  }
+  .footer-meta-left {
+    display: inline-flex; align-items: baseline; gap: 14px;
+    font: 600 16px/1 var(--font-sans);
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .footer-quote {
+    font: 700 28px/0.7 var(--font-heading);
+    color: #fff;
+    transform: translateY(2px);
+  }
+  .footer-meta-right {
+    font: 600 16px/1 var(--font-sans);
+    letter-spacing: -0.01em;
+    color: rgba(255,255,255,0.55);
+  }
+  .footer-base {
+    display: flex; justify-content: flex-end;
+    margin-top: 64px;
+    font: 400 12px/1 var(--font-sans);
+    color: rgba(255,255,255,0.45);
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ────────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#" aria-label="Saywise">
+      <span class="brand-mark"><img src="assets/saywise-logo-white.png" alt="Saywise" style="filter:brightness(0);" /></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#hiring">For hiring</a></li>
+      <li><a href="#company">Company</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="btn btn-ghost" href="#">Sign in</a>
+      <a class="btn btn-solid" href="#">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ───────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <div class="wrap-narrow">
+    <h1>Resume is dead.<br/><span class="muted">Your work isn't.</span></h1>
+    <p class="lead">Your best work deserves more than bullet points and keywords.<br/>Use Saywise to show the real context, depth, and thinking - in your own voice.</p>
+
+    <div class="steps">
+      <article class="step">
+        <div>
+          <div class="step-num">Step 01</div>
+          <div class="step-title" style="margin-top:10px;">Connect and get interviewed</div>
+          <p class="step-desc">Connect your LinkedIn and resume, then complete an in-depth interview.</p>
+        </div>
+        <div class="step-art">Placeholder · connect + interview</div>
+      </article>
+      <article class="step">
+        <div>
+          <div class="step-num">Step 02</div>
+          <div class="step-title" style="margin-top:10px;">Review your profile</div>
+          <p class="step-desc">See your profile come to life with multimedia drafts, ready to review and publish.</p>
+        </div>
+        <div class="step-art">Placeholder · profile review</div>
+      </article>
+      <article class="step">
+        <div>
+          <div class="step-num">Step 03</div>
+          <div class="step-title" style="margin-top:10px;">Get discovered and grow</div>
+          <p class="step-desc">Get discovered and matched, and keep adding content to your living profile.</p>
+        </div>
+        <div class="step-art">Placeholder · discovery + growth</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA STRIP ───────────────────────────────────────────── -->
+<section class="cta-strip">
+  <div class="wrap-narrow">
+    <span class="kicker">Start now</span>
+    <h2>Turn your LinkedIn into a Saywise profile.</h2>
+    <form class="cta-form" onsubmit="event.preventDefault()">
+      <input type="text" placeholder="linkedin.com/in/your-handle" aria-label="Your LinkedIn URL" />
+      <button class="btn btn-solid btn-lg" type="submit">Start →</button>
+    </form>
+    <div class="cta-meta">Free · No credit card required</div>
+  </div>
+</section>
+
+<!-- ─── COMPANIES ──────────────────────────────────────────── -->
+<section class="logos">
+  <h2>Companies hiring on Saywise</h2>
+  <div class="ticker">
+    <div class="ticker-track">
+      <div class="logo-cell"><img src="https://cdn.simpleicons.org/linear/0a0a0a" alt="" /><span class="logo-name">Linear</span></div>
+      <div class="logo-cell"><img src="https://cdn.simpleicons.org/stripe/0a0a0a" alt="" /><span class="logo-name">Stripe</span></div>
+      <div class="logo-cell"><img src="https://cdn.simpleicons.org/notion/0a0a0a" alt="" /><span class="logo-name">Notion</span></div>
+      <div class="logo-cell"><img src="https://cdn.simpleicons.org/figma/0a0a0a" alt="" /><span class="logo-name">Figma</span></div>
+      <div class="logo-cell"><img src="https://cdn.simpleicons.org/vercel/0a0a0a" alt="" /><span class="logo-name">Vercel</span></div>
+      <div class="logo-cell"><img src="https://cdn.simpleicons.org/anthropic/0a0a0a" alt="" /><span class="logo-name">Anthropic</span></div>
+      <div class="logo-cell"><img src="https://cdn.simpleicons.org/airbnb/0a0a0a" alt="" /><span class="logo-name">Airbnb</span></div>
+      <div class="logo-cell"><img src="https://cdn.simpleicons.org/shopify/0a0a0a" alt="" /><span class="logo-name">Shopify</span></div>
+      <div class="logo-cell"><img src="https://cdn.simpleicons.org/spotify/0a0a0a" alt="" /><span class="logo-name">Spotify</span></div>
+      <div class="logo-cell"><img src="https://cdn.simpleicons.org/discord/0a0a0a" alt="" /><span class="logo-name">Discord</span></div>
+      <!-- duplicate for seamless loop -->
+      <div class="logo-cell" aria-hidden="true"><img src="https://cdn.simpleicons.org/linear/0a0a0a" alt="" /><span class="logo-name">Linear</span></div>
+      <div class="logo-cell" aria-hidden="true"><img src="https://cdn.simpleicons.org/stripe/0a0a0a" alt="" /><span class="logo-name">Stripe</span></div>
+      <div class="logo-cell" aria-hidden="true"><img src="https://cdn.simpleicons.org/notion/0a0a0a" alt="" /><span class="logo-name">Notion</span></div>
+      <div class="logo-cell" aria-hidden="true"><img src="https://cdn.simpleicons.org/figma/0a0a0a" alt="" /><span class="logo-name">Figma</span></div>
+      <div class="logo-cell" aria-hidden="true"><img src="https://cdn.simpleicons.org/vercel/0a0a0a" alt="" /><span class="logo-name">Vercel</span></div>
+      <div class="logo-cell" aria-hidden="true"><img src="https://cdn.simpleicons.org/anthropic/0a0a0a" alt="" /><span class="logo-name">Anthropic</span></div>
+      <div class="logo-cell" aria-hidden="true"><img src="https://cdn.simpleicons.org/airbnb/0a0a0a" alt="" /><span class="logo-name">Airbnb</span></div>
+      <div class="logo-cell" aria-hidden="true"><img src="https://cdn.simpleicons.org/shopify/0a0a0a" alt="" /><span class="logo-name">Shopify</span></div>
+      <div class="logo-cell" aria-hidden="true"><img src="https://cdn.simpleicons.org/spotify/0a0a0a" alt="" /><span class="logo-name">Spotify</span></div>
+      <div class="logo-cell" aria-hidden="true"><img src="https://cdn.simpleicons.org/discord/0a0a0a" alt="" /><span class="logo-name">Discord</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURE 1: STAND OUT ───────────────────────────────── -->
+<section class="feature">
+  <div class="wrap">
+    <div class="feature-head">
+      <h2>Stand out and get the next opportunity</h2>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-target="f1-1"><span class="tab-idx">01</span> Multimedia storytelling</button>
+      <button class="tab" data-target="f1-2"><span class="tab-idx">02</span> Video-first</button>
+      <button class="tab" data-target="f1-3"><span class="tab-idx">03</span> Expert community</button>
+    </div>
+
+    <div class="feature-body">
+      <div class="feature-copy">
+        <div class="feature-copy-panel active" id="f1-1">
+          <h3>Tell the stories a resume can't</h3>
+          <p>Resumes compress years of your work into bullet points. They don't tell your story. Use video and multimedia content to bring your work to life.</p>
+        </div>
+        <div class="feature-copy-panel" id="f1-2">
+          <h3>Stand out instantly with video</h3>
+          <p>Today's world is video-first. 76% of hiring managers pay more attention to profiles with video. Create self-intros and project explainers with guided scripts and a built-in teleprompter.</p>
+        </div>
+        <div class="feature-copy-panel" id="f1-3">
+          <h3>Get recognized as an expert</h3>
+          <p>Share your unique insights and perspectives in Saywise's content discovery feed, and get discovered by recruiters and the community.</p>
+        </div>
+      </div>
+      <div class="feature-media"><span class="feature-media-label">Placeholder · timeline + media</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURE 2: PROVE YOUR WORK ─────────────────────────── -->
+<section class="feature">
+  <div class="wrap">
+    <div class="feature-head">
+      <h2>Prove your work. Show, don't just tell.</h2>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-target="f2-1"><span class="tab-idx">01</span> Case studies</button>
+      <button class="tab" data-target="f2-2"><span class="tab-idx">02</span> Video endorsements (coming soon)</button>
+      <button class="tab" data-target="f2-3"><span class="tab-idx">03</span> AI skills</button>
+    </div>
+
+    <div class="feature-body">
+      <div class="feature-copy">
+        <div class="feature-copy-panel active" id="f2-1">
+          <h3>Earn credibility instantly</h3>
+          <p>Anyone can claim anything on a resume and add AI-generated keywords. Prove your actual work with credible stories, such as thoughtful case studies.</p>
+        </div>
+        <div class="feature-copy-panel" id="f2-2">
+          <h3>Social proof from collaborators</h3>
+          <p>The strongest validation comes from people who've seen your work up close. Invite past collaborators to record short video endorsements, adding a trust layer to your profile.</p>
+        </div>
+        <div class="feature-copy-panel" id="f2-3">
+          <h3>Showcase your AI skills</h3>
+          <p>Companies increasingly look for AI skills when hiring. Showcase what you've actually built with AI through project links and real work.</p>
+        </div>
+      </div>
+      <div class="feature-media"><span class="feature-media-label">Placeholder · case study layout</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS STRIP ────────────────────────────────────────── -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num">74%</div>
+        <div class="stat-label">of Saywise profiles get a recruiter reply within two weeks.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1.4×</div>
+        <div class="stat-label">more interviews compared to a standard resume submission.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$3K</div>
+        <div class="stat-label">average salary uplift reported by Saywise members in their next role.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURE 3: CREATE EFFORTLESSLY ─────────────────────── -->
+<section class="feature">
+  <div class="wrap">
+    <div class="feature-head">
+      <h2>Create effortlessly and continuously</h2>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-target="f3-1"><span class="tab-idx">01</span> AI content assistant</button>
+      <button class="tab" data-target="f3-2"><span class="tab-idx">02</span> AI content co-pilot</button>
+      <button class="tab" data-target="f3-3"><span class="tab-idx">03</span> A living profile</button>
+    </div>
+
+    <div class="feature-body">
+      <div class="feature-copy">
+        <div class="feature-copy-panel active" id="f3-1">
+          <h3>Tell your human story. Let AI do the heavy lifting.</h3>
+          <p>Telling your authentic story doesn't mean creating everything manually. Saywise learns your style and generates video scripts and draft posts in your own voice.</p>
+        </div>
+        <div class="feature-copy-panel" id="f3-2">
+          <h3>Always know what to create next</h3>
+          <p>After connecting your LinkedIn and other sources and conducting an in-depth interview, Saywise identifies content gaps, suggests ongoing topics, and generates draft content for you.</p>
+        </div>
+        <div class="feature-copy-panel" id="f3-3">
+          <h3>A profile that evolves with you</h3>
+          <p>Resumes are static, one-page documents. Saywise is a living profile you continuously update with new work, ideas, and experiences, like a personal Wikipedia.</p>
+        </div>
+      </div>
+      <div class="feature-media"><span class="feature-media-label">Placeholder · AI editor</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURE 4: MADE FOR MODERN HIRING ──────────────────── -->
+<section class="feature">
+  <div class="wrap">
+    <div class="feature-head">
+      <h2>Made for modern hiring</h2>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-target="f4-1"><span class="tab-idx">01</span> AI-native</button>
+      <button class="tab" data-target="f4-2"><span class="tab-idx">02</span> Dynamic profile generation</button>
+      <button class="tab" data-target="f4-3"><span class="tab-idx">03</span> Mock interview (coming soon)</button>
+    </div>
+
+    <div class="feature-body">
+      <div class="feature-copy">
+        <div class="feature-copy-panel active" id="f4-1">
+          <h3>Built for the AI era</h3>
+          <p>These days, AI often reads profiles before humans do. Saywise optimizes your profile for AI readability, increasing your chances of getting discovered through AI-powered search.</p>
+        </div>
+        <div class="feature-copy-panel" id="f4-2">
+          <h3>Tailor your profile for every role</h3>
+          <p>Stop rewriting your profile for every application. Paste a job description and instantly generate a tailored version of your profile, and share it with a unique link.</p>
+        </div>
+        <div class="feature-copy-panel" id="f4-3">
+          <h3>Practice interviews that feel human</h3>
+          <p>Practice with natural, human-like mock interviews on Saywise. Turn your best responses into public content and add them directly to your profile.</p>
+        </div>
+      </div>
+      <div class="feature-media"><span class="feature-media-label">Placeholder · recruiter dashboard</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROFILE GALLERY ────────────────────────────────────── -->
+<section class="gallery">
+  <div class="wrap">
+    <h2>See profiles built with Saywise</h2>
+    <div class="gallery-grid">
+      <article class="profile-card">
+        <div>
+          <div class="profile-avatar"></div>
+          <div class="profile-name">Maya Chen</div>
+          <div class="profile-role">Designer & writer · Brooklyn</div>
+        </div>
+      </article>
+      <article class="profile-card">
+        <div>
+          <div class="profile-avatar" style="background:linear-gradient(135deg,#cdd6e0,#9aa4b1);"></div>
+          <div class="profile-name">Dimas Ardiansyah</div>
+          <div class="profile-role">Engineer · Berlin</div>
+        </div>
+      </article>
+      <article class="profile-card">
+        <div>
+          <div class="profile-avatar" style="background:linear-gradient(135deg,#e6d8c8,#bba78c);"></div>
+          <div class="profile-name">Priya Raman</div>
+          <div class="profile-role">PM · Bengaluru</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ────────────────────────────────────────────────── -->
+<section class="faq">
+  <div class="wrap-narrow">
+    <h2>FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-row">
+          <div class="faq-q">What is Saywise?</div>
+          <div class="faq-icon"><i data-lucide="plus"></i></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Saywise is a Resume 2.0 platform for the AI era. Instead of reducing your work into bullet points and keywords, Saywise helps you showcase how you think through stories, videos, case studies, AI projects, and other rich content.</p>
+          <p>It's a living professional profile designed for both human and AI readers.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-row">
+          <div class="faq-q">Why do I need another profile page when I already have a resume?</div>
+          <div class="faq-icon"><i data-lucide="plus"></i></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Resumes are static documents built for a different era. They compress years of work into a few bullet points and make everyone look the same, especially in the age of AI-generated "ATS-friendly" resumes.</p>
+          <p>Saywise gives you space to show the real depth behind your work through richer storytelling, multimedia content, and proof of what you've actually built.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-row">
+          <div class="faq-q">Why can't I just use Notion or Framer to build my page?</div>
+          <div class="faq-icon"><i data-lucide="plus"></i></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>You can, but Saywise is purpose-built for professional identity and discovery.</p>
+          <p>Instead of starting from a blank page, Saywise helps you generate content, identify gaps, tailor profiles for different roles, optimize for AI readability, practice interviews, and continuously evolve your profile over time.</p>
+          <p>It's not just a portfolio website builder. It's a career growth platform.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-row">
+          <div class="faq-q">Can't I just vibe code my own site using Claude Code?</div>
+          <div class="faq-icon"><i data-lucide="plus"></i></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>You probably can - especially if you're technical. But most people don't continuously maintain and update personal sites because it takes time and effort.</p>
+          <p>Saywise is designed to make ongoing professional storytelling effortless. It helps you continuously generate new content, update your profile, and surface your expertise without manually building and maintaining everything yourself.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-row">
+          <div class="faq-q">Will recruiters and hiring managers actually check out my Saywise profile?</div>
+          <div class="faq-icon"><i data-lucide="plus"></i></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Increasingly, yes.</p>
+          <p>Hiring is becoming more content-driven and AI-driven. Recruiters already look beyond resumes at LinkedIn profiles, portfolios, GitHub, videos, personal websites, and social content.</p>
+          <p>Saywise brings all of that together into a structured profile designed to help both humans and AI systems better understand your work and expertise.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-row">
+          <div class="faq-q">Can I practice job interviews on Saywise?</div>
+          <div class="faq-icon"><i data-lucide="plus"></i></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Yes. Saywise offers natural, human-like mock interviews that feel more conversational than robotic.</p>
+          <p>You can also turn strong responses from your mock interviews into public content and add them directly to your profile.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-row">
+          <div class="faq-q">Does Saywise help surface job opportunities?</div>
+          <div class="faq-icon"><i data-lucide="plus"></i></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Yes. Saywise helps increase your visibility by making your profile more discoverable to recruiters, hiring managers, and AI-powered search systems.</p>
+          <p>We're also building additional discovery and opportunity-matching features over time.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-row">
+          <div class="faq-q">How do I get started?</div>
+          <div class="faq-icon"><i data-lucide="plus"></i></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Simply sign up, connect your LinkedIn and other sources, and complete a guided onboarding interview.</p>
+          <p>Saywise will help generate your initial profile, identify content gaps, and suggest ways to strengthen your professional story.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-row">
+          <div class="faq-q">How much does Saywise cost?</div>
+          <div class="faq-icon"><i data-lucide="plus"></i></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>We currently offer free access during our early stage, with additional premium features planned for the future.</p>
+          <p>Join early to secure access and help shape the future of Resume 2.0.</p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ──────────────────────────────────────────── -->
+<section class="cta-strip" style="margin-bottom:0;">
+  <div class="wrap-narrow">
+    <span class="kicker">Start now</span>
+    <h2>Resumes don't tell stories. Start your Saywise profile.</h2>
+    <form class="cta-form" onsubmit="event.preventDefault()">
+      <input type="text" placeholder="linkedin.com/in/your-handle" aria-label="Your LinkedIn URL" />
+      <button class="btn btn-solid btn-lg" type="submit">Start →</button>
+    </form>
+    <div class="cta-meta">Free · No credit card required</div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-wordmark"><img src="assets/saywise-logo-white.png" alt="Saywise" /></div>
+  </div>
+</footer>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.tabs').forEach((row) => {
+    row.querySelectorAll('.tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        row.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
+        tab.classList.add('active');
+        const targetId = tab.getAttribute('data-target');
+        if (targetId) {
+          const section = row.closest('section');
+          section.querySelectorAll('.feature-copy-panel').forEach((p) => p.classList.remove('active'));
+          const panel = section.querySelector('#' + targetId);
+          if (panel) panel.classList.add('active');
+        }
+      });
+    });
+  });
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    item.querySelector('.faq-row').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+  // Nav scroll state — turn on chrome once user scrolls past the fold
+  const nav = document.querySelector('.nav');
+  const onScroll = () => {
+    const past = window.scrollY > 80;
+    nav.classList.toggle('scrolled', past);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  // Lucide icons
+  window.addEventListener('load', () => window.lucide && window.lucide.createIcons());
+</script>
+</body>
+</html>

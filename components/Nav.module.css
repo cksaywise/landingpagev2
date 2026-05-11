@@ -1,0 +1,77 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition: background-color 200ms ease, border-color 200ms ease,
+    backdrop-filter 200ms ease;
+}
+
+.nav.scrolled {
+  background: color-mix(in srgb, var(--color-sys-bg) 88%, transparent);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom-color: var(--color-sys-rule);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 64px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-sys-ink);
+  text-decoration: none;
+  font: 500 18px/1 var(--font-heading);
+  letter-spacing: -0.025em;
+}
+
+.brandMark {
+  height: 22px;
+  display: inline-flex;
+}
+
+.brandMark img {
+  height: 100%;
+  width: auto;
+  display: block;
+  filter: brightness(0);
+}
+
+.links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  background: var(--color-sys-bg-2);
+  border: 1px solid var(--color-sys-rule);
+  border-radius: 9999px;
+  padding: 4px;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  font: 500 13px/1 var(--font-sans);
+  color: var(--color-sys-ink-2);
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.links a:hover {
+  color: var(--color-sys-ink);
+  background: var(--color-sys-accent-soft);
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

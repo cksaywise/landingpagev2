@@ -1,0 +1,63 @@
+.strip {
+  background: var(--color-sys-ink);
+  color: var(--color-sys-bg);
+  padding: 56px 0;
+}
+
+.kicker {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.kicker::before {
+  background: var(--color-sys-bg) !important;
+}
+
+.heading {
+  font: 500 44px/1.05 var(--font-heading);
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  white-space: nowrap;
+  color: var(--color-sys-bg);
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 560px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  padding: 6px 6px 6px 22px;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: var(--color-sys-bg);
+  font: 400 15px/1 var(--font-sans);
+  letter-spacing: -0.005em;
+  padding: 14px 0;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.submit {
+  background: var(--color-sys-bg);
+  color: var(--color-sys-ink);
+}
+
+.submit:hover {
+  background: #f0f0f0;
+}
+
+.meta {
+  margin-top: 14px;
+  font: 400 12px/1.4 var(--font-mono);
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.5);
+}

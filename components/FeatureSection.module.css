@@ -1,0 +1,129 @@
+.feature {
+  padding: 88px 0;
+  border-top: 1px solid var(--color-sys-rule);
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.heading {
+  font: 500 44px/1.02 var(--font-heading);
+  letter-spacing: -0.038em;
+  color: var(--color-sys-ink);
+  max-width: 720px;
+  margin: 0 auto;
+  text-wrap: balance;
+  white-space: nowrap;
+}
+
+.tabs {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  border-bottom: 1px solid var(--color-sys-rule);
+  margin-bottom: 40px;
+}
+
+.tab {
+  position: relative;
+  padding: 14px 18px;
+  font: 500 13px/1.35 var(--font-sans);
+  letter-spacing: -0.005em;
+  color: var(--color-sys-ink-3);
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  margin-bottom: -1px;
+  text-align: center;
+  transition: color 150ms ease, border-color 150ms ease;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tab + .tab::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 1px;
+  background: var(--color-sys-rule);
+}
+
+.tab:hover {
+  color: var(--color-sys-ink-2);
+}
+
+.tabActive {
+  color: var(--color-sys-ink) !important;
+  border-bottom-color: var(--color-sys-ink) !important;
+}
+
+.tabIdx {
+  font: 400 10px/1 var(--font-mono);
+  letter-spacing: 0.12em;
+  color: var(--color-sys-ink-3);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.copy h3 {
+  font: 500 30px/1.15 var(--font-heading);
+  letter-spacing: -0.028em;
+  color: var(--color-sys-ink);
+  margin-bottom: 14px;
+  text-wrap: balance;
+}
+
+.copy p {
+  font: 400 16px/1.6 var(--font-sans);
+  letter-spacing: -0.008em;
+  color: var(--color-sys-ink-2);
+  text-wrap: pretty;
+}
+
+.media {
+  background: var(--color-sys-tile);
+  border: 1px solid var(--color-sys-rule);
+  border-radius: var(--radius-sys-media);
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-sys-rule) 0 1px,
+    transparent 1px 22px
+  );
+  opacity: 0.6;
+}
+
+.mediaLabel {
+  position: relative;
+  font: 400 11px/1 var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-sys-ink-3);
+  background: var(--color-sys-bg);
+  padding: 8px 14px;
+  border: 1px solid var(--color-sys-rule);
+  border-radius: 9999px;
+}

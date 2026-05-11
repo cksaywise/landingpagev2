@@ -1,0 +1,31 @@
+.stats {
+  background: var(--color-sys-ink);
+  color: var(--color-sys-bg);
+  padding: 88px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.stat {
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 8px 28px;
+}
+
+.num {
+  font: 400 64px/1 var(--font-heading);
+  letter-spacing: -0.04em;
+  color: var(--color-sys-bg);
+  margin-bottom: 16px;
+}
+
+.label {
+  font: 400 15px/1.5 var(--font-sans);
+  letter-spacing: -0.005em;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 280px;
+  text-wrap: pretty;
+}
