@@ -61,7 +61,7 @@
 }
 
 .cell img {
-  max-height: 28px;
+  height: 28px;
   width: auto;
   max-width: 140px;
   display: block;
