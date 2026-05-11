@@ -41,10 +41,6 @@
   animation: ticker-scroll 42s linear infinite;
 }
 
-.ticker:hover .track {
-  animation-play-state: paused;
-}
-
 @keyframes ticker-scroll {
   from {
     transform: translateX(0);
@@ -62,12 +58,6 @@
   height: 32px;
   opacity: 0.55;
   filter: grayscale(100%);
-  transition: opacity 200ms ease, filter 200ms ease;
-}
-
-.cell:hover {
-  opacity: 1;
-  filter: grayscale(0%);
 }
 
 .cell img {
