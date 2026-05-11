@@ -3,15 +3,15 @@ import styles from "./StatsStrip.module.css";
 const STATS = [
   {
     num: "74%",
-    label: "of Saywise profiles get a recruiter reply within two weeks.",
+    label: "74% of recruiters say video in applications helps with evaluation",
   },
   {
     num: "1.4×",
-    label: "more interviews compared to a standard resume submission.",
+    label: "Candidates with video are 1.4× more likely to get interviews",
   },
   {
     num: "$3K",
-    label: "average salary uplift reported by Saywise members in their next role.",
+    label: "Average spend on resume writing and career coaching",
   },
 ];
 
