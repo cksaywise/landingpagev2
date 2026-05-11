@@ -57,10 +57,10 @@
 .cell {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
   flex-shrink: 0;
-  color: var(--color-sys-ink);
-  opacity: 0.5;
+  height: 32px;
+  opacity: 0.55;
   filter: grayscale(100%);
   transition: opacity 200ms ease, filter 200ms ease;
 }
@@ -71,12 +71,8 @@
 }
 
 .cell img {
-  height: 22px;
+  max-height: 28px;
   width: auto;
+  max-width: 140px;
   display: block;
-}
-
-.name {
-  font: 600 18px/1 var(--font-heading);
-  letter-spacing: -0.02em;
 }
