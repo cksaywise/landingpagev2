@@ -35,9 +35,7 @@ export function CtaStrip({ headline }: Props) {
             Start →
           </button>
         </form>
-        <div className={styles.meta}>
-          Free · No credit card · Takes about a minute
-        </div>
+        <div className={styles.meta}>Free · No credit card required</div>
       </div>
     </section>
   );

@@ -16,7 +16,7 @@ const LOGOS = [
 export function LogosTicker() {
   return (
     <section className={styles.section}>
-      <h2 className={styles.heading}>Companies hiring on Saywise.</h2>
+      <h2 className={styles.heading}>Companies hiring on Saywise</h2>
       <div className={styles.ticker}>
         <div className={styles.track}>
           {LOGOS.map((l) => (

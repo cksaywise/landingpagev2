@@ -3,21 +3,21 @@ import styles from "./Hero.module.css";
 const STEPS = [
   {
     num: "Step 01",
-    title: "Drop in a link",
-    desc: "LinkedIn, Notion, GitHub — wherever your work already lives.",
-    art: "Placeholder · drop in a link",
+    title: "Connect and get interviewed",
+    desc: "Connect your LinkedIn and resume, then complete an in-depth interview.",
+    art: "Placeholder · connect + interview",
   },
   {
     num: "Step 02",
-    title: "We draft your story",
-    desc: "A timeline of projects, talks, and writing — extracted and arranged.",
-    art: "Placeholder · profile draft",
+    title: "Review your profile",
+    desc: "See your profile come to life with multimedia drafts, ready to review and publish.",
+    art: "Placeholder · profile review",
   },
   {
     num: "Step 03",
-    title: "Make it yours",
-    desc: "Pick a theme, edit in your voice, and ship a profile that feels like you.",
-    art: "Placeholder · publish",
+    title: "Get discovered and grow",
+    desc: "Get discovered and matched, and keep adding content to your living profile.",
+    art: "Placeholder · discovery + growth",
   },
 ];
 
@@ -35,7 +35,7 @@ export function Hero() {
         <p className={styles.lead}>
           Your best work deserves more than bullet points and keywords.
           <br />
-          Use Saywise to show the real context, depth, and thinking — in your
+          Use Saywise to show the real context, depth, and thinking - in your
           own voice.
         </p>
 

@@ -20,7 +20,7 @@ const ITEMS: Qa[] = [
   {
     q: "Why do I need another profile page when I already have a resume?",
     a: [
-      "Resumes are static documents built for a different era. They compress years of work into a few bullet points and make everyone look the same, especially in the age of AI-generated “ATS-friendly” resumes.",
+      "Resumes are static documents built for a different era. They compress years of work into a few bullet points and make everyone look the same, especially in the age of AI-generated \"ATS-friendly\" resumes.",
       "Saywise gives you space to show the real depth behind your work through richer storytelling, multimedia content, and proof of what you've actually built.",
     ],
   },
@@ -35,7 +35,7 @@ const ITEMS: Qa[] = [
   {
     q: "Can't I just vibe code my own site using Claude Code?",
     a: [
-      "You probably can — especially if you're technical. But most people don't continuously maintain and update personal sites because it takes time and effort.",
+      "You probably can - especially if you're technical. But most people don't continuously maintain and update personal sites because it takes time and effort.",
       "Saywise is designed to make ongoing professional storytelling effortless. It helps you continuously generate new content, update your profile, and surface your expertise without manually building and maintaining everything yourself.",
     ],
   },
