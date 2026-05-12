@@ -24,16 +24,10 @@ export function Nav() {
         </a>
         <ul className={styles.links}>
           <li>
-            <a href="#about">About</a>
+            <a href="#professionals">For professionals</a>
           </li>
           <li>
-            <a href="#hiring">For hiring</a>
-          </li>
-          <li>
-            <a href="#company">Company</a>
-          </li>
-          <li>
-            <a href="#pricing">Pricing</a>
+            <a href="#companies">For companies</a>
           </li>
         </ul>
         <div className={styles.right}>

@@ -51,7 +51,7 @@
   letter-spacing: -0.045em;
   color: var(--color-sys-ink);
   text-wrap: balance;
-  margin: 0 auto 28px;
+  margin: 0 auto 64px;
   max-width: 1000px;
 }
 
@@ -59,78 +59,38 @@
   color: var(--color-sys-ink-3);
 }
 
-.lead {
-  font: 400 19px/1.55 var(--font-sans);
-  letter-spacing: -0.012em;
-  color: var(--color-sys-ink-2);
-  max-width: 580px;
-  margin: 0 auto;
-  text-wrap: pretty;
-}
-
-.steps {
-  margin-top: 140px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  text-align: left;
-}
-
-.step {
-  aspect-ratio: 1 / 1.15;
+.media {
   background: var(--color-sys-tile);
   border: 1px solid var(--color-sys-rule);
   border-radius: var(--radius-sys-media);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 150ms ease, transform 150ms ease;
-}
-
-.step:hover {
-  border-color: var(--color-sys-rule-strong);
-  transform: translateY(-2px);
-}
-
-.stepNum {
-  font: 400 11px/1 var(--font-mono);
-  letter-spacing: 0.16em;
-  color: var(--color-sys-ink-3);
-  text-transform: uppercase;
-}
-
-.stepTitle {
-  font: 500 22px/1.2 var(--font-heading);
-  letter-spacing: -0.022em;
-  color: var(--color-sys-ink);
-  margin-top: 10px;
-}
-
-.stepDesc {
-  font: 400 14px/1.5 var(--font-sans);
-  letter-spacing: -0.005em;
-  color: var(--color-sys-ink-2);
-  margin-top: 8px;
-  max-width: 260px;
-}
-
-.stepArt {
-  align-self: stretch;
-  flex: 1;
-  margin: 18px 0 8px;
-  border-radius: 4px;
-  background:
-    repeating-linear-gradient(135deg, var(--color-sys-rule) 0 1px, transparent 1px 14px),
-    var(--color-sys-bg);
-  border: 1px dashed var(--color-sys-rule-strong);
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-sys-ink-3);
-  font: 400 11px/1 var(--font-mono);
+  position: relative;
+  overflow: hidden;
+}
+
+.media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-sys-rule) 0 1px,
+    transparent 1px 22px
+  );
+  opacity: 0.6;
+}
+
+.mediaLabel {
+  position: relative;
+  font: 400 12px/1 var(--font-mono);
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: var(--color-sys-ink-3);
+  background: var(--color-sys-bg);
+  padding: 10px 16px;
+  border: 1px solid var(--color-sys-rule);
+  border-radius: 9999px;
 }

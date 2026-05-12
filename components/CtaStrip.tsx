@@ -23,9 +23,9 @@ export function CtaStrip({ headline, flush }: Props) {
         <form className={styles.form} onSubmit={onSubmit}>
           <input
             className={styles.input}
-            type="text"
-            placeholder="linkedin.com/in/your-handle"
-            aria-label="Your LinkedIn URL"
+            type="email"
+            placeholder="Your email"
+            aria-label="Your email"
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
