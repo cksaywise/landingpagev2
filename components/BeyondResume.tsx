@@ -23,10 +23,11 @@ export function BeyondResume() {
     <section className={styles.section}>
       <div className="wrap">
         <div className={styles.head}>
-          <h2 className={styles.heading}>Go beyond the resume</h2>
+          <h2 className={styles.heading}>
+            Your professional profile for the agentic era
+          </h2>
           <p className={styles.sub}>
-            Your best work deserves more than bullet points. Tell your full
-            story and get discovered.
+            Tell your full story and get discovered.
           </p>
         </div>
 
