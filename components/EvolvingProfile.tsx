@@ -30,8 +30,8 @@ export function EvolvingProfile() {
         <div className={styles.head}>
           <h2 className={styles.heading}>A profile that evolves with you</h2>
           <p className={styles.sub}>
-            Keep your profile growing with new ideas and content, guided by your
-            AI co-pilot.
+            Build a living profile with new ideas and content - like your
+            personal Wikipedia
           </p>
         </div>
 
