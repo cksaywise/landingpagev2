@@ -2,19 +2,19 @@ import styles from "./BeyondResume.module.css";
 
 const ROWS = [
   {
-    chip: "Video-first profile",
-    title: "Stand out with video",
-    body: "Today's world is video-first. 76% of hiring managers pay more attention to profiles with video. Create self-intros and project explainers with guided scripts and a built-in teleprompter.",
-  },
-  {
-    chip: "Multimedia storytelling",
-    title: "Show, don't just tell",
-    body: "Add case studies, project metrics, AI skills. Include video endorsements from collaborators. Without a one-page limit, you can dive deep into the why behind your work, helping you stand out and build trust.",
+    chip: "Full-context storytelling",
+    title: "Go beyond the resume",
+    body: "While humans prefer one-page resumes, AI agents thrive on richer context and more data. Build a living profile that goes beyond bullet points - with videos, case studies, links, and more.",
   },
   {
     chip: "AI readability",
-    title: "AI-ready. Human-friendly.",
-    body: "These days, AI often reads profiles before humans do. Saywise optimizes your profile for AI readability, increasing your chances of getting discovered through AI-powered search.",
+    title: "AI-optimized. Human-friendly.",
+    body: "Increasingly, AI reads profiles before humans do. Make your profile better readable to AI agents while keeping it clear and engaging for humans.",
+  },
+  {
+    chip: "Job matching agents",
+    title: "Let agents find opportunities",
+    body: "Let Saywise agents work for you by surfacing the best opportunities - from full-time roles to fractional work, consulting projects, and more.",
   },
 ];
 
