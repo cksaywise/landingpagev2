@@ -46,17 +46,30 @@
   pointer-events: none;
 }
 
+.text {
+  margin-bottom: 64px;
+}
+
 .heading {
   font: 500 96px/0.98 var(--font-heading);
   letter-spacing: -0.045em;
   color: var(--color-sys-ink);
   text-wrap: balance;
-  margin: 0 auto 64px;
+  margin: 0 auto;
   max-width: 1000px;
 }
 
 .muted {
   color: var(--color-sys-ink-3);
+}
+
+.subhead {
+  font: 400 22px/1.5 var(--font-sans);
+  letter-spacing: -0.012em;
+  color: var(--color-sys-ink-2);
+  max-width: 720px;
+  margin: 28px auto 0;
+  text-wrap: pretty;
 }
 
 .media {
