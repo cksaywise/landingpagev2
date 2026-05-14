@@ -27,6 +27,7 @@ export default function CompaniesPage() {
         title="Find people, not keyword matches"
         subhead="There's someone perfect for your team. You just haven't discovered them yet."
         imageLabel="Eye-catching video or image targeted for companies"
+        backdropImage="/assets/hero-dawn-8bit.png"
       />
       <FeatureRows rows={rows} />
       <CtaStrip headline="Start finding people, not keywords" flush />

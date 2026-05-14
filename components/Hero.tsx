@@ -5,7 +5,7 @@ type Props = {
   titleMuted?: string;
   subhead?: string;
   imageLabel: string;
-  backdrop?: boolean;
+  backdropImage?: string;
 };
 
 export function Hero({
@@ -13,13 +13,17 @@ export function Hero({
   titleMuted,
   subhead,
   imageLabel,
-  backdrop = false,
+  backdropImage,
 }: Props) {
   return (
     <section className={styles.hero}>
-      {backdrop && (
+      {backdropImage && (
         <>
-          <div className={styles.bg} aria-hidden />
+          <div
+            className={styles.bg}
+            aria-hidden
+            style={{ backgroundImage: `url(${backdropImage})` }}
+          />
           <div className={styles.veil} aria-hidden />
         </>
       )}

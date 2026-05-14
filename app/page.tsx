@@ -34,7 +34,7 @@ export default function Page() {
         title="Resume is dead."
         titleMuted="Your work isn't."
         imageLabel="a beautiful image for profile"
-        backdrop
+        backdropImage="/assets/hero-sky-8bit.png"
       />
       <CtaStrip headline="Start your Saywise profile now" />
       <FeatureRows

@@ -10,7 +10,6 @@
 .bg {
   position: absolute;
   inset: 0;
-  background-image: url('/assets/hero-sky-8bit.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
