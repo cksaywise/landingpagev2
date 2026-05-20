@@ -38,8 +38,8 @@ export default function Page() {
       />
       <CtaStrip headline="Start your Saywise profile now" />
       <FeatureRows
-        heading="Your professional profile for the agentic era"
-        sub="Tell your full story and get discovered."
+        heading="Meet Saywise: Resume 2.0"
+        sub="A better way to show who you are, how you think, and what you're capable of"
         rows={proRows}
       />
       <StatsStrip />
