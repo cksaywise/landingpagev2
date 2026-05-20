@@ -2,24 +2,24 @@ import styles from "./EvolvingProfile.module.css";
 
 const CARDS = [
   {
-    chip: "AI content co-pilot",
-    title: "Tell your human story. Let AI do the heavy lifting.",
-    body: "Telling your authentic story doesn't mean creating everything manually. Let Saywise AI help generate video scripts and draft posts in your own voice.",
-  },
-  {
-    chip: "Dynamic profile generation",
-    title: "Tailor your profile for every role",
-    body: "Stop rewriting your profile for every application. Paste a job description and instantly generate a tailored version of your profile, and share it with a unique link.",
-  },
-  {
     chip: "Expert community",
     title: "Get recognized as an expert",
     body: "Share your unique insights and perspectives in Saywise's content discovery feed, and get discovered by recruiters and the community.",
   },
   {
-    chip: "Mock interview",
-    title: "Practice interviews that feel human",
-    body: "Practice with natural, human-like mock interviews on Saywise. Turn your best responses into public content and add them directly to your profile.",
+    chip: "AI readability",
+    title: "AI-optimized. Human-friendly.",
+    body: "Increasingly, AI reads profiles before humans do. Make your profile better readable to AI agents while keeping it clear and engaging for humans.",
+  },
+  {
+    chip: "Job matching agents",
+    title: "Let agents find opportunities",
+    body: "Let Saywise agents work for you by surfacing the best opportunities - from full-time roles to fractional work, consulting projects, and more.",
+  },
+  {
+    chip: "Dynamic profile generation",
+    title: "Tailor your profile for every role",
+    body: "Stop rewriting your profile for every application. Paste a job description and instantly generate a tailored version of your profile, and share it with a unique link.",
   },
 ];
 
@@ -28,9 +28,9 @@ export function EvolvingProfile() {
     <section className={styles.section}>
       <div className="wrap">
         <div className={styles.head}>
-          <h2 className={styles.heading}>A profile that evolves with you</h2>
+          <h2 className={styles.heading}>Stand out and get discovered</h2>
           <p className={styles.sub}>
-            Easily add new ideas and content with an AI co-pilot.
+            You tell your story. Our AI helps you find the right opportunities.
           </p>
         </div>
 
