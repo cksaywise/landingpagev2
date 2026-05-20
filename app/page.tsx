@@ -4,6 +4,7 @@ import { CtaStrip } from "@/components/CtaStrip";
 import { FeatureRows, FeatureRow } from "@/components/FeatureRows";
 import { StatsStrip } from "@/components/StatsStrip";
 import { EvolvingProfile } from "@/components/EvolvingProfile";
+import { LogosTicker } from "@/components/LogosTicker";
 import { ProfileGallery } from "@/components/ProfileGallery";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
@@ -41,6 +42,7 @@ export default function Page() {
       />
       <StatsStrip />
       <EvolvingProfile />
+      <LogosTicker />
       <ProfileGallery />
       <Faq />
       <CtaStrip headline="Start your Saywise profile now" flush />
