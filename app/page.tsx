@@ -10,19 +10,16 @@ import { Footer } from "@/components/Footer";
 
 const proRows: FeatureRow[] = [
   {
-    chip: "Full-context storytelling",
-    title: "Go beyond the resume",
-    body: "While humans prefer one-page resumes, AI agents thrive on richer context and more data. Build a living profile that goes beyond bullet points - with videos, case studies, links, and more.",
+    title: "Tell stories that go beyond bullet points",
+    body: "Companies want to see the person behind the resume. Create authentic intro videos. Add case studies, project notes, video endorsements, and more. Tell richer stories that resumes simply can't capture.",
   },
   {
-    chip: "AI readability",
-    title: "AI-optimized. Human-friendly.",
-    body: "Increasingly, AI reads profiles before humans do. Make your profile better readable to AI agents while keeping it clear and engaging for humans.",
+    title: "A living profile that grows with you",
+    body: "Why update your resume only when you're job hunting? Saywise helps you continuously document your wins, insights, and expertise. Over time, it becomes a rich, evolving representation of your work and ideas, almost like your personal Wikipedia.",
   },
   {
-    chip: "Job matching agents",
-    title: "Let agents find opportunities",
-    body: "Let Saywise agents work for you by surfacing the best opportunities - from full-time roles to fractional work, consulting projects, and more.",
+    title: "AI content co-pilot",
+    body: "Create content without doing all the work yourself. Saywise AI suggests topics, drafts talking points, and can even schedule recurring phone calls so you can simply talk. Authentic content creation should feel effortless.",
   },
 ];
 
