@@ -6,16 +6,16 @@ import { Footer } from "@/components/Footer";
 
 const rows: FeatureRow[] = [
   {
-    title: "AI-native hiring platform",
-    body: "Let Saywise agents discover and surface the best talent for your team through rich profiles that truly represent their work.",
-  },
-  {
     title: "See beyond the resume",
-    body: "Understand the person behind the bullet points through video, case studies, and other credible signals, not just keywords.",
+    body: "Understand the person behind the bullet points through video intros, case studies, social endorsements, and other credible signals. Save interview time by evaluating richer context and more verifiable proof of work upfront.",
   },
   {
     title: "Find experts through content",
-    body: "The best candidates often aren't applying. Discover them through authentic insights and expertise shared on their Saywise profiles.",
+    body: "For many of the best candidates, their content is their best resume. Saywise creates a discovery space with insightful content from experts, helping companies find the right people through their ideas and authentic perspectives.",
+  },
+  {
+    title: "AI-native hiring platform",
+    body: "Let Saywise agents discover and surface the best talent for your team through rich profiles that truly represent their work. Think of Saywise as a collection of living profiles your AI agents can search, understand, and even ask questions to.",
   },
 ];
 
