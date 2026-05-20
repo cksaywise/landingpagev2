@@ -2,13 +2,26 @@
   padding: 96px 0;
 }
 
+.head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
 .heading {
   font: 500 56px/1.02 var(--font-heading);
   letter-spacing: -0.038em;
-  text-align: center;
-  margin: 0 auto 56px;
+  margin: 0 auto 16px;
   max-width: 960px;
   text-wrap: balance;
+}
+
+.sub {
+  font: 400 20px/1.5 var(--font-sans);
+  letter-spacing: -0.012em;
+  color: var(--color-sys-ink-2);
+  max-width: 720px;
+  margin: 0 auto;
+  text-wrap: pretty;
 }
 
 .grid {

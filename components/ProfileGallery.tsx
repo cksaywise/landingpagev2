@@ -23,7 +23,10 @@ export function ProfileGallery() {
   return (
     <section className={styles.gallery}>
       <div className="wrap">
-        <h2 className={styles.heading}>See profiles built with Saywise</h2>
+        <div className={styles.head}>
+          <h2 className={styles.heading}>Saywise profiles we love</h2>
+          <p className={styles.sub}>Standout profiles created by our users</p>
+        </div>
         <div className={styles.grid}>
           {PROFILES.map((p) => (
             <article key={p.name} className={styles.card}>
