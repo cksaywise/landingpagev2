@@ -18,7 +18,7 @@ const CARDS = [
   },
   {
     chip: "AI content co-pilot",
-    title: "Create content without doing all the work yourself",
+    title: "Create content without the heavy lifting",
     body: "Saywise AI suggests topics, drafts talking points, and can even schedule recurring phone calls so you can simply talk. Authentic content creation should feel effortless.",
   },
 ];
