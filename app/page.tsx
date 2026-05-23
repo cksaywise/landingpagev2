@@ -35,11 +35,7 @@ export default function Page() {
         backdropImage="/assets/hero-sky-8bit.png"
       />
       <CtaStrip headline="Start your Saywise profile now" />
-      <FeatureRows
-        heading="Meet Saywise: Resume 2.0"
-        sub="A better way to show who you are, how you think, and what you're capable of"
-        rows={proRows}
-      />
+      <FeatureRows heading="Stand out. Don't get filtered out." rows={proRows} />
       <StatsStrip />
       <EvolvingProfile />
       <LogosTicker />
