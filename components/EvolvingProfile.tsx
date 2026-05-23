@@ -7,11 +7,6 @@ const CARDS = [
     body: "Share your unique insights and perspectives in Saywise's content discovery feed, and get discovered by recruiters and the community.",
   },
   {
-    chip: "AI readability",
-    title: "AI-optimized. Human-friendly.",
-    body: "Increasingly, AI reads profiles before humans do. Make your profile better readable to AI agents while keeping it clear and engaging for humans.",
-  },
-  {
     chip: "Job matching agents",
     title: "Let agents find opportunities",
     body: "Let Saywise agents work for you by surfacing the best opportunities - from full-time roles to fractional work, consulting projects, and more.",
@@ -21,6 +16,11 @@ const CARDS = [
     title: "Tailor your profile for every role",
     body: "Stop rewriting your profile for every application. Paste a job description and instantly generate a tailored version of your profile, and share it with a unique link.",
   },
+  {
+    chip: "AI content co-pilot",
+    title: "Create content without doing all the work yourself",
+    body: "Saywise AI suggests topics, drafts talking points, and can even schedule recurring phone calls so you can simply talk. Authentic content creation should feel effortless.",
+  },
 ];
 
 export function EvolvingProfile() {
@@ -28,10 +28,9 @@ export function EvolvingProfile() {
     <section className={styles.section}>
       <div className="wrap">
         <div className={styles.head}>
-          <h2 className={styles.heading}>Stand out and get discovered</h2>
-          <p className={styles.sub}>
-            You tell your story. Our AI helps you find the right opportunities.
-          </p>
+          <h2 className={styles.heading}>
+            The next generation professional profile
+          </h2>
         </div>
 
         <div className={styles.grid}>
