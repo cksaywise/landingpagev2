@@ -29,7 +29,7 @@ export function EvolvingProfile() {
       <div className="wrap">
         <div className={styles.head}>
           <h2 className={styles.heading}>
-            The next generation professional profile
+            The next-gen professional profile
           </h2>
         </div>
 
