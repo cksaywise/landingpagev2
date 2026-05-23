@@ -11,16 +11,19 @@ import { Footer } from "@/components/Footer";
 
 const proRows: FeatureRow[] = [
   {
-    title: "Tell stories that go beyond bullet points",
-    body: "Companies want to see the person behind the resume. Create authentic intro videos. Add case studies, project notes, video endorsements, and more. Tell richer stories that resumes simply can't capture.",
+    chip: "Stand out",
+    title: "Tell your full story",
+    body: "Resumes are just bullet points and keywords; they don't tell the full story. Companies want to see the real person behind them. In fact, 76% of recruiters find short video intros helpful. Use video and multimedia to show the full story behind your work.",
   },
   {
-    title: "A living profile that grows with you",
-    body: "Why update your resume only when you're job hunting? Saywise helps you continuously document your wins, insights, and expertise. Over time, it becomes a rich, evolving representation of your work and ideas, almost like your personal Wikipedia.",
+    chip: "Build trust",
+    title: "Add proof of work",
+    body: "Anyone can claim anything on a resume. In fact, most resumes look the same these days, filled with the same \"ATS-friendly\" keywords. Add case studies, video endorsements, and AI projects to build trust and provide real proof of work.",
   },
   {
-    title: "AI content co-pilot",
-    body: "Create content without doing all the work yourself. Saywise AI suggests topics, drafts talking points, and can even schedule recurring phone calls so you can simply talk. Authentic content creation should feel effortless.",
+    chip: "Get discovered",
+    title: "Built for the AI era",
+    body: "Increasingly, AI agents review more profiles than humans do. Saywise automatically makes your profile AI-readable and discoverable. Our AI also identifies gaps in your profile and suggests new content ideas.",
   },
 ];
 
