@@ -6,16 +6,16 @@ import { Footer } from "@/components/Footer";
 
 const rows: FeatureRow[] = [
   {
-    title: "See beyond the resume",
-    body: "Understand the person behind the bullet points through video intros, case studies, social endorsements, and other credible signals. Save interview time by evaluating richer context and more verifiable proof of work upfront.",
+    title: "See how candidates think",
+    body: "Resumes say very little about how someone solves problems or communicates ideas. Through videos, case studies, ongoing content, and project explainers, Saywise helps you evaluate how candidates think and whether they're the right culture fit before the first interview.",
   },
   {
-    title: "Find experts through content",
-    body: "For many of the best candidates, their content is their best resume. Saywise creates a discovery space with insightful content from experts, helping companies find the right people through their ideas and authentic perspectives.",
+    title: "See proof, not claims",
+    body: "Anyone can claim they use AI. Saywise helps candidates showcase real AI projects, workflows, prompts, and automations so your team can evaluate how they actually use AI in practice.",
   },
   {
-    title: "AI-native hiring platform",
-    body: "Let Saywise agents discover and surface the best talent for your team through rich profiles that truly represent their work. Think of Saywise as a collection of living profiles your AI agents can search, understand, and even ask questions to.",
+    title: "AI-native talent discovery",
+    body: "The best candidates often aren't actively applying. Instead of filtering resumes by keywords, Saywise helps recruiters and AI agents discover talent through natural language search across rich profiles, AI projects, ongoing insights, and authentic proof of work.",
   },
 ];
 
@@ -24,8 +24,8 @@ export default function CompaniesPage() {
     <>
       <Nav />
       <Hero
-        title="Find people, not keyword matches"
-        subhead="There's someone perfect for your team. You just haven't discovered them yet."
+        title="Find AI-native builders, not keyword matches"
+        subhead="The best AI-native talent can't be understood through bullet points alone. Saywise helps you discover how candidates think, build, communicate, and actually use AI."
         imageLabel="Eye-catching video or image targeted for companies"
         backdropImage="/assets/hero-dawn-8bit.png"
       />
