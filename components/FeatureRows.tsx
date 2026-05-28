@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import styles from "./FeatureRows.module.css";
 
 export type FeatureRow = {
@@ -8,7 +9,7 @@ export type FeatureRow = {
 
 type Props = {
   heading?: string;
-  sub?: string;
+  sub?: ReactNode;
   rows: FeatureRow[];
   layout?: "rows" | "columns";
 };

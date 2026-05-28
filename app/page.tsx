@@ -38,7 +38,13 @@ export default function Page() {
       <CtaStrip headline="Start your Saywise profile now" />
       <FeatureRows
         heading="A new profile for AI-native builders"
-        sub="Companies want AI-native builders with the right culture fit. Use Saywise to show your work and how you think."
+        sub={
+          <>
+            Companies want AI-native builders with the right culture fit.
+            <br />
+            Use Saywise to show your work and how you think.
+          </>
+        }
         rows={proRows}
         layout="columns"
       />
