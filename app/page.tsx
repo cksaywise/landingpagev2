@@ -2,9 +2,9 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { CtaStrip } from "@/components/CtaStrip";
 import { FeatureRows, FeatureRow } from "@/components/FeatureRows";
+import { FeaturedItems } from "@/components/FeaturedItems";
 import { StatsStrip } from "@/components/StatsStrip";
 import { EvolvingProfile } from "@/components/EvolvingProfile";
-import { LogosTicker } from "@/components/LogosTicker";
 import { ProfileGallery } from "@/components/ProfileGallery";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
@@ -41,9 +41,10 @@ export default function Page() {
         rows={proRows}
         layout="columns"
       />
+      <FeaturedItems heading="Featured AI projects" />
+      <FeaturedItems heading="Featured case studies" />
       <StatsStrip />
       <EvolvingProfile />
-      <LogosTicker />
       <ProfileGallery />
       <Faq />
       <CtaStrip headline="Start your Saywise profile now" flush />

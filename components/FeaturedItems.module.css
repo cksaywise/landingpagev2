@@ -1,0 +1,63 @@
+.section {
+  padding: 88px 0;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.heading {
+  font: 500 36px/1.1 var(--font-heading);
+  letter-spacing: -0.03em;
+  color: var(--color-sys-ink);
+}
+
+.seeMore {
+  font: 500 14px/1 var(--font-sans);
+  letter-spacing: -0.005em;
+  color: var(--color-sys-ink-2);
+  text-decoration: none;
+  transition: color 150ms ease;
+  flex-shrink: 0;
+}
+
+.seeMore:hover {
+  color: var(--color-sys-ink);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--color-sys-tile);
+  border: 1px solid var(--color-sys-rule);
+  border-radius: var(--radius-sys-media);
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.card:hover {
+  border-color: var(--color-sys-rule-strong);
+  transform: translateY(-2px);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-sys-rule) 0 1px,
+    transparent 1px 22px
+  );
+  opacity: 0.6;
+}
