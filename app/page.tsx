@@ -11,19 +11,16 @@ import { Footer } from "@/components/Footer";
 
 const proRows: FeatureRow[] = [
   {
-    chip: "Stand out",
-    title: "Tell your full story",
-    body: "Resumes are just bullet points and keywords; they don't tell the full story. Companies want to see the real person behind them. In fact, 76% of recruiters find short video intros helpful. Use video and multimedia to show the full story behind your work.",
+    title: "Show your AI skills",
+    body: "Companies are actively searching for AI-native talent. Showcase your AI projects, prompts, and automations so you can demonstrate how you actually use AI - not just claim it on a resume.",
   },
   {
-    chip: "Build trust",
-    title: "Add proof of work",
-    body: "Anyone can claim anything on a resume. In fact, most resumes look the same these days, filled with the same \"ATS-friendly\" keywords. Add case studies, video endorsements, and AI projects to build trust and provide real proof of work.",
+    title: "Stand out beyond bullet points",
+    body: "Companies want to see the real person behind the resume. Use videos, case studies, and endorsements to tell richer stories. Stand out in a world where most resumes look the same with generic \"ATS-friendly\" keywords.",
   },
   {
-    chip: "Get discovered",
-    title: "Built for the AI era",
-    body: "Increasingly, AI agents review more profiles than humans do. Saywise automatically makes your profile AI-readable and discoverable. Our AI also identifies gaps in your profile and suggests new content ideas.",
+    title: "Get discovered by AI",
+    body: "Increasingly, AI agents review profiles before humans do. Saywise makes your profile searchable and understandable by both recruiters and AI agents, helping the right opportunities find you.",
   },
 ];
 
@@ -38,7 +35,12 @@ export default function Page() {
         backdropImage="/assets/hero-sky-8bit.png"
       />
       <CtaStrip headline="Start your Saywise profile now" />
-      <FeatureRows heading="Stand out. Don't get filtered out." rows={proRows} />
+      <FeatureRows
+        heading="A new profile for AI-native builders"
+        sub="Companies want AI-native builders with the right culture fit. Use Saywise to show your work and how you think."
+        rows={proRows}
+        layout="columns"
+      />
       <StatsStrip />
       <EvolvingProfile />
       <LogosTicker />
